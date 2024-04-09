@@ -1,0 +1,328 @@
+:root {
+    --white: #ffffff;
+    --blue: #00b7e0;
+    --black: #000000;
+    --blue: hsl(210deg 100% 44%);
+    --purple: rgb(151, 95, 255);
+    --lightgrey: #f8f8f8;
+    --red: #c8102e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 200vh;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+}
+
+/* Navigation */
+
+nav {
+    height: fit-content;
+    width: 100vw;
+    background-color: #fbfbfb;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 10;
+    top: 0;
+}
+
+.logo {
+    padding: 1vh 1vw;
+}
+
+.logo img {
+    height: 3rem;
+    width: 4rem;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0 0.7vw;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0.7vw;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li a:hover,
+.nav-links li span:hover {
+    color: var(--red);
+}
+
+.nav-links li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links>li>ul {
+    list-style: none;
+    position: absolute;
+    bottom: -125px;
+    background-color: #fbfbfb;
+    width: max-content;
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background: #000;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger {
+    display: none;
+}
+
+.nav-links li:hover ul,
+.nav-links ul:hover {
+    display: flex;
+}
+
+@media (min-width:800px) and (max-width:1180px) {
+    .nav-links {
+        gap: 30px;
+    }
+
+    .nav-links>li>a {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 800px) {
+    nav {
+        position: fixed;
+        z-index: 10;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        right: 3%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 10;
+        transition: all 0.7s ease;
+    }
+
+    .nav-links {
+        position: fixed;
+        background: #131418;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+
+    .nav-links.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        width: 80%;
+        justify-content: space-between;
+    }
+
+    .nav-links>li>span,
+    .nav-links li a {
+        color: var(--white);
+    }
+
+    .nav-links li:nth-child(1) {
+        transition: all 0.5s ease 0.2s;
+    }
+
+    .nav-links li:nth-child(2) {
+        transition: all 0.5s ease 0.4s;
+    }
+
+    .nav-links li:nth-child(3) {
+        transition: all 0.5s ease 0.6s;
+    }
+
+    .nav-links li:nth-child(4) {
+        transition: all 0.5s ease 0.7s;
+    }
+
+    .nav-links li:nth-child(5) {
+        transition: all 0.5s ease 0.8s;
+    }
+
+    .nav-links li:nth-child(6) {
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+
+    .nav-links li:nth-child(7) {
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+
+    li.fade {
+        opacity: 1;
+    }
+
+    .nav-links li:hover ul,
+    .nav-links ul:hover {
+        display: none;
+    }
+
+    .nav-links>li>ul {
+        display: none;
+        left: auto;
+        bottom: auto;
+        top: 20px;
+        right: 20px;
+        background-color: #000000;
+        gap: 15px;
+        font-size: 13px;
+        padding: 10px;
+        z-index: 3;
+        width: 90%;
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: #fff;
+}
+
+.toggle .line2 {
+    transition: all 0.7s ease;
+    width: 0;
+    background-color: #fff;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+    background-color: #fff;
+}
+
+
+.contactBtn {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+    border-radius: 45px;
+    border: none;
+    background-color: var(--red);
+    color: white !important;
+    box-shadow: 0px 10px 10px #cf4259 inset,
+        0px 5px 10px rgba(5, 5, 5, 0.212),
+        0px -10px 10px #c8102e inset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.contactBtn::before {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.678);
+    content: "";
+    filter: blur(1px);
+    top: 7px;
+    border-radius: 50%;
+}
+
+.contactBtn::after {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.137);
+    content: "";
+    filter: blur(1px);
+    bottom: 7px;
+    border-radius: 50%;
+}
+
+.contactBtn:hover {
+    animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
