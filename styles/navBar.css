@@ -97,7 +97,6 @@ nav {
 .nav-links>li>ul {
     list-style: none;
     position: absolute;
-    bottom: -125px;
     background-color: #fbfbfb;
     width: max-content;
     display: none;
@@ -106,6 +105,14 @@ nav {
     border-radius: 5px;
     font-size: 14px;
     padding: 10px;
+}
+
+.nav-links>li> #capabilities{
+    bottom: -125px;
+}
+
+.nav-links>li> #services{
+    bottom: -160px;
 }
 
 .hamburger div {
